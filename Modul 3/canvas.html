@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Halaman Canvas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Doe">
+    <meta name="nim" content="12345">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff0f5;
+            color: #5a3a4a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f9a8c9, #f472b6, #ec4899);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+        }
+
+        header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        section {
+            display: flex;
+            min-height: 400px;
+        }
+
+        nav {
+            float: left;
+            width: 220px;
+            min-height: 400px;
+            background: linear-gradient(180deg, #fce4ec, #f8bbd9);
+            padding: 25px 20px;
+            border-right: 2px solid #f9a8c9;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            background-color: #f9a8c9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav p.nav-title {
+            font-weight: 700;
+            color: #9d174d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f9a8c9;
+        }
+
+        article {
+            float: left;
+            padding: 30px;
+            width: calc(100% - 220px);
+            background-color: #fff5f9;
+            min-height: 400px;
+        }
+
+        article h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #be185d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f9a8c9;
+        }
+
+        canvas {
+            border-radius: 12px;
+            border: 3px solid #f9a8c9;
+            box-shadow: 0 4px 20px rgba(244, 114, 182, 0.25);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .btn-pink {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(244, 114, 182, 0.4);
+        }
+
+        .btn-pink:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 114, 182, 0.5);
+        }
+
+        .btn-pink:active {
+            transform: scale(0.97);
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                float: none;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2> Ummi Fatikhkhurrokhmah</h2>
+    </header>
+
+    <section>
+        <nav>
+            <p class="nav-title">Menu</p>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gambar.html"> Gambar</a></li>
+                <li><a href="event.html"> Event</a></li>
+                <li><a href="audio.html"> Audio</a></li>
+                <li><a href="video.html"> Video</a></li>
+                <li><a href="svg.html"> SVG</a></li>
+                <li><a href="canvas.html"> Canvas</a></li>
+                <li><a href="pendaftaran.html"> Pendaftaran</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1> Canvas HTML5</h1>
+
+            <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
+
+            <div class="btn-row">
+                <button class="btn-pink" onclick="drawAll()"> Gambar Semua</button>
+                <button class="btn-pink" onclick="clearCanvas()"> Hapus</button>
+                <button class="btn-pink" onclick="drawRect()"> Kotak</button>
+                <button class="btn-pink" onclick="drawCircle()"> Lingkaran</button>
+                <button class="btn-pink" onclick="drawLine()"> Garis</button>
+                <button class="btn-pink" onclick="drawText()"> Teks</button>
+            </div>
+
+            <div style="background:white; border-radius:15px; padding:20px; border:1px solid #fce4ec; margin-top:10px;">
+                <h3 style="color:#ec4899; margin-bottom:10px;"> Kesimpulan</h3>
+                <p>
+                    Elemen <strong>&lt;canvas&gt;</strong> HTML5 menyediakan area gambar yang dapat dimanipulasi
+                    menggunakan JavaScript. Kita bisa menggambar berbagai bentuk seperti persegi
+                    (<code>fillRect</code>),
+                    lingkaran (<code>arc</code>), garis (<code>moveTo/lineTo</code>), dan teks (<code>fillText</code>).
+                    Canvas bersifat <em>raster</em> (berbasis piksel), berbeda dari SVG yang bersifat <em>vektor</em>.
+                    Canvas sangat berguna untuk animasi, game, dan visualisasi data.
+                </p>
+                <p style="margin-top:10px; color:#ec4899; font-weight:700;">NIM: 253307005 | Nama: Ummi
+                    Fatikhkhurrokhmah</p>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p> Footer — Hak Cipta &copy; 2026 Ummi fatikhkhurrokhmah (NIM: 253307005)</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#333';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawRect() {
+            // Persegi berwarna
+            ctx.fillStyle = '#ec4899';
+            ctx.fillRect(30, 30, 120, 80);
+
+            // Persegi hanya garis
+            ctx.strokeStyle = '#f9a8c9';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(170, 30, 120, 80);
+
+            // Persegi semi transparan
+            ctx.fillStyle = 'rgba(249, 168, 201, 0.5)';
+            ctx.fillRect(100, 80, 120, 80);
+        }
+
+        function drawCircle() {
+            // Lingkaran penuh
+            ctx.beginPath();
+            ctx.arc(80, 250, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = '#f472b6';
+            ctx.fill();
+
+            // Lingkaran setengah
+            ctx.beginPath();
+            ctx.arc(220, 250, 50, 0, Math.PI);
+            ctx.fillStyle = '#fce4ec';
+            ctx.fill();
+
+            // Lingkaran garis
+            ctx.beginPath();
+            ctx.arc(350, 250, 40, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#be185d';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+        }
+
+        function drawLine() {
+            ctx.beginPath();
+            ctx.moveTo(20, 380);
+            ctx.lineTo(380, 380);
+            ctx.strokeStyle = '#f9a8c9';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Garis diagonal berwarna
+            ctx.beginPath();
+            ctx.moveTo(20, 340);
+            ctx.lineTo(200, 370);
+            ctx.lineTo(380, 340);
+            ctx.strokeStyle = '#ec4899';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        function drawText() {
+            ctx.font = 'bold 22px Quicksand, sans-serif';
+            ctx.fillStyle = 'white';
+            ctx.fillText(' Hello Canvas!', 100, 175);
+
+            ctx.font = '14px Quicksand, sans-serif';
+            ctx.fillStyle = '#f9a8c9';
+            ctx.fillText('HTML5 Canvas + JavaScript', 85, 200);
+        }
+
+        function drawAll() {
+            clearCanvas();
+            drawRect();
+            drawCircle();
+            drawLine();
+            drawText();
+        }
+
+        // Gambar otomatis saat halaman dimuat
+        drawAll();
+    </script>
+</body>
+
+</html>

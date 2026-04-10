@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Latihan 2_3</title>
+
+    <!-- Tambahan pada head -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header">
+        <!-- Isi header disini id header -->
+        <h1>Website</h1>
+    </div>
+
+    <!-- Link -->
+    <div id="link">
+        <ul>
+            <li><a href="#">Jepang</a></li>
+            <li><a href="#">Inggris</a></li>
+            <li><a href="#">Paris</a></li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+        <div id="content">
+            <h2>Form Pendaftaran Mahasiswa Baru</h2>
+
+            <form method="POST" action="proses.php">
+
+                <p>Nama Lengkap : <br>
+                    <input type="text" name="nama">
+                </p>
+
+                <p>Tempat Tanggal Lahir : <br>
+                    <input type="text" name="tempat">
+                    <input type="date" name="tgl_lahir" min="1989-01-01" max="1994-12-31">
+                </p>
+
+                <p>Agama : <br>
+                    <select name="agama">
+                        <option>Islam</option>
+                        <option>Kristen</option>
+                        <option>Katolik</option>
+                        <option>Hindu</option>
+                        <option>Budha</option>
+                        <option>Konghucu</option>
+                    </select>
+                </p>
+
+                <p>Jenis Kelamin : <br>
+                    <input type="radio" name="jk" value="Laki-laki"> Laki-laki
+                    <input type="radio" name="jk" value="Perempuan"> Perempuan
+                </p>
+
+                <p>Foto (Ukuran File Maks 30 KB) : <br>
+                    <input type="file" name="foto">
+                </p>
+
+                <p>Nama Ibu : <br>
+                    <input type="text" name="nama_ibu">
+                </p>
+
+                <p>Alamat Rumah : <br>
+                    <textarea name="alamat_rumah" rows="4" cols="40"></textarea>
+                </p>
+
+                <p>No. Telp : <br>
+                    <input type="text" name="telp">
+                </p>
+
+                <p>Nama Sekolah Asal : <br>
+                    <input type="text" name="sekolah">
+                </p>
+
+                <p>Alamat Sekolah Asal : <br>
+                    <textarea name="alamat_sekolah" rows="4" cols="40"></textarea>
+                </p>
+
+                <p>Jurusan Dipilih : <br>
+                    <select name="jurusan">
+                        <option>Komputerisasi Akuntansi</option>
+                        <option>Administrasi Bisnis</option>
+                        <option>Teknik Komputer Kontrol</option>
+                        <option>Teknik Listrik</option>
+                        <option>Mesin Otomotif</option>
+                        <option>Perkeretaapian</option>
+                        <option>Teknologi Informasi</option>
+                        <option>Akuntansi</option>
+                    </select>
+                </p>
+
+                <p>Tahu Informasi ini dari : <br>
+                    <input type="checkbox" name="info[]" value="Koran"> Koran
+                    <input type="checkbox" name="info[]" value="Website"> Website
+                    <input type="checkbox" name="info[]" value="Televisi"> Televisi
+                    <input type="checkbox" name="info[]" value="Radio"> Radio
+                    <input type="checkbox" name="info[]" value="Teman"> Teman
+                </p>
+
+                <p>
+                    <input type="submit" value="DAFTAR">
+                    <input type="reset" value="BATAL">
+                </p>
+
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+            <i>miyciii253</i>
+        </div>
+
+</body>

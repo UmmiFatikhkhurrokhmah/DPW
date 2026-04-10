@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Form Penjadwal Pertemuan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Doe">
+    <meta name="nim" content="12345">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff0f5;
+            color: #5a3a4a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f9a8c9, #f472b6, #ec4899);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+        }
+
+        header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        section {
+            display: flex;
+            min-height: 400px;
+        }
+
+        nav {
+            float: left;
+            width: 220px;
+            min-height: 400px;
+            background: linear-gradient(180deg, #fce4ec, #f8bbd9);
+            padding: 25px 20px;
+            border-right: 2px solid #f9a8c9;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            background-color: #f9a8c9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav p.nav-title {
+            font-weight: 700;
+            color: #9d174d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f9a8c9;
+        }
+
+        article {
+            float: left;
+            padding: 30px;
+            width: calc(100% - 220px);
+            background-color: #fff5f9;
+            min-height: 400px;
+        }
+
+        article h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #be185d;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f9a8c9;
+        }
+
+        /* Form Styles */
+        fieldset {
+            border: 2px solid #f9a8c9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.1);
+        }
+
+        legend {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #be185d;
+            font-weight: 700;
+            padding: 0 12px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        label {
+            font-weight: 600;
+            color: #5a3a4a;
+            min-width: 220px;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        input[type="range"] {
+            font-family: 'Quicksand', sans-serif;
+            padding: 9px 14px;
+            border: 2px solid #f9a8c9;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: #5a3a4a;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: #fff5f9;
+            min-width: 200px;
+        }
+
+        input[type="range"] {
+            padding: 6px 0;
+            accent-color: #ec4899;
+            width: 200px;
+        }
+
+        input:focus {
+            border-color: #ec4899;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+            background: white;
+        }
+
+        input:valid {
+            border-color: #a7f3d0;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: #fca5a5;
+        }
+
+        .range-labels {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .range-val {
+            background: #ec4899;
+            color: white;
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            min-width: 35px;
+            text-align: center;
+        }
+
+        .hint {
+            font-size: 0.78rem;
+            color: #b06080;
+            margin-top: 3px;
+            margin-left: 232px;
+            font-style: italic;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 114, 182, 0.5);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.97);
+        }
+
+        #success-msg {
+            display: none;
+            background: linear-gradient(135deg, #fce4ec, #f9a8c9);
+            border: 2px solid #ec4899;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #be185d;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                float: none;
+                min-height: auto;
+            }
+
+            label {
+                min-width: unset;
+            }
+
+            .hint {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2> Ummi Fatikhkhurrokhmah</h2>
+    </header>
+
+    <section>
+        <nav>
+            <p class="nav-title">Menu</p>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gambar.html"> Gambar</a></li>
+                <li><a href="event.html"> Event</a></li>
+                <li><a href="audio.html"> Audio</a></li>
+                <li><a href="video.html"> Video</a></li>
+                <li><a href="svg.html"> SVG</a></li>
+                <li><a href="canvas.html"> Canvas</a></li>
+                <li><a href="pendaftaran.html"> Pendaftaran</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1> Form Penjadwal Pertemuan</h1>
+
+            <form id="myForm" onsubmit="handleSubmit(event)">
+
+                <!-- Informasi Pribadi -->
+                <fieldset>
+                    <legend> Informasi Pribadi</legend>
+
+                    <div class="form-row">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required
+                            minlength="3">
+                    </div>
+                    <p class="hint"> Format: (contoh: 0812-345678) </p>
+
+                    <div class="form-row">
+                        <label for="telepon">No. Telepon</label>
+                        <input type="tel" id="telepon" name="telepon" placeholder="0812344556"
+                            pattern="[0-9]{4}-[0-9]{6,8}" title="Format: XXXX-XXXXXX (contoh: 0872671921)" required>
+                    </div>
+                    <p class="hint"> Format: nama@gmail.com </p>
+
+                    <div class="form-row">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" name="email" placeholder="nama@domain.com" required>
+                    </div>
+                    <p class="hint"> Format: XXXX-XX-XX.com</p>
+
+                    <div class="form-row">
+                        <label for="tglLahir">Tanggal Lahir</label>
+                        <input type="date" id="tglLahir" name="tglLahir" min="1987-01-01" max="2026-12-31" required>
+                    </div>
+                    <p class="hint"> Antara 1 Januari 1987 — 31 Desember 2026</p>
+                </fieldset>
+
+                <!-- Permintaan Pertemuan -->
+                <fieldset>
+                    <legend> Permintaan Pertemuan</legend>
+
+                    <div class="form-row">
+                        <label for="tujuan">Tujuan Pertemuan</label>
+                        <input type="text" id="tujuan" name="tujuan" placeholder="Jelaskan tujuan pertemuan" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="kepentingan">Tingkat Kepentingan Pertemuan</label>
+                        <div class="range-labels">
+                            <span style="font-size:0.85rem; color:#b06080;">Tidak Penting (0)</span>
+                            <input type="range" id="kepentingan" name="kepentingan" min="0" max="10" value="5"
+                                oninput="document.getElementById('kepentinganVal').textContent = this.value">
+                            <span class="range-val" id="kepentinganVal">5</span>
+                            <span style="font-size:0.85rem; color:#b06080;">(10) Mendesak</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="tanggal">Tanggal</label>
+                        <input type="date" id="tanggal" name="tanggal" required>
+                    </div>
+                    <p class="hint"> Tanggal harus di atas hari ini</p>
+
+                    <div class="form-row">
+                        <label for="waktu">Waktu</label>
+                        <input type="time" id="waktu" name="waktu" min="17:00" max="21:00" required>
+                    </div>
+                    <p class="hint"> Antara 17.00 — 21.00 WIB</p>
+                </fieldset>
+
+                <button type="submit" class="btn-submit"> Submit</button>
+            </form>
+
+            <div id="success-msg">
+                Form berhasil dikirim! Terima kasih, pertemuan Anda telah dijadwalkan.
+            </div>
+
+            <div style="background:white; border-radius:15px; padding:20px; border:1px solid #fce4ec; margin-top:25px;">
+                <h3 style="color:#ec4899; margin-bottom:10px;"> Kesimpulan</h3>
+                <p>HTML5 menyediakan berbagai tipe input form dengan validasi bawaan (built-in):
+                    <strong>type="tel"</strong> dengan <strong>pattern</strong> untuk format nomor Indonesia,
+                    <strong>type="email"</strong> untuk validasi format email,
+                    <strong>type="date"</strong> dengan <strong>min/max</strong> untuk batasan tanggal,
+                    <strong>type="range"</strong> untuk input angka dengan slider,
+                    dan <strong>type="time"</strong> dengan <strong>min/max</strong> untuk batasan jam.
+                    Semua validasi ini bekerja tanpa JavaScript tambahan!
+                </p>
+                <p style="margin-top:10px; color:#ec4899; font-weight:700;">NIM: 253307005 | Nama: Ummi
+                    Fatikhkhurrokhmah</p>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p> Footer — Hak Cipta &copy; 2026 Ummi Fatikhkhurrokhmah (NIM: 253307005)</p>
+    </footer>
+
+    <script>
+        // Set min tanggal pertemuan = hari ini + 1
+        const tglInput = document.getElementById('tanggal');
+        const today = new Date();
+        today.setDate(today.getDate() + 1);
+        tglInput.min = today.toISOString().split('T')[0];
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('success-msg').style.display = 'block';
+            document.getElementById('success-msg').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 7 - Javascript | Soft Pink Theme</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe4ec 0%, #ffd9e4 100%);
+            color: #5e3a4b;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #d46b8c;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #e8a2b9;
+            font-size: 1.1rem;
+        }
+
+        .soft-pink-badge {
+            display: inline-block;
+            background: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(255, 105, 180, 0.1);
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 25px;
+            border: 1px solid #ffc0d0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(255, 105, 180, 0.15);
+            border-color: #ffb3c6;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #ffecf0;
+            padding-bottom: 12px;
+        }
+
+        .card-number {
+            background: #ffdfe8;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #d46b8c;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #d46b8c;
+        }
+
+        .card-content {
+            margin: 15px 0;
+        }
+
+        input,
+        button {
+            background: #fff0f5;
+            border: 1px solid #ffc0d0;
+            padding: 10px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            margin: 5px 5px 5px 0;
+            cursor: pointer;
+            color: #5e3a4b;
+            transition: 0.2s;
+        }
+
+        input {
+            background: white;
+            cursor: text;
+            width: calc(100% - 20px);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff9eb6;
+            box-shadow: 0 0 0 3px #ffb7c580;
+        }
+
+        button {
+            background: #ffdfe8;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #ffc0d0;
+            transform: scale(1.02);
+        }
+
+        .output {
+            margin-top: 12px;
+            padding: 10px;
+            background: #fff8fa;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #b0577a;
+            word-break: break-word;
+        }
+
+        .radio-group label {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+            accent-color: #d46b8c;
+        }
+
+        .realtime-box {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            background: #ffecf0;
+            padding: 15px;
+            border-radius: 24px;
+            color: #c95a7c;
+            font-family: monospace;
+        }
+
+        .menu-jquery {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .menu-btn {
+            background: #ffe2ec;
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #e8a2b9;
+            font-size: 13px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ffd0dc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Praktikum 7 - JavaScript </h1>
+            <p>Modul Lengkap | 11 Program | Tema Soft Pink</p>
+            <div class="soft-pink-badge"> Ummi Fatikhkhurrokhmah </div>
+        </div>
+
+        <div class="grid">
+            <!-- 1. Program Alert -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">1</div>
+                    <div class="card-title">Program Alert</div>
+                </div>
+                <div class="card-content">
+                    <button id="tombolAlert">Klik untuk Alert</button>
+                    <button id="tombolAlertCustom">Alert Custom</button>
+                </div>
+            </div>
+
+            <!-- 2. Program Input Data -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">2</div>
+                    <div class="card-title">Input Data</div>
+                </div>
+                <div class="card-content">
+                    <input type="text" id="namaUser" placeholder="Masukkan nama Anda">
+                    <button onclick="tampilkanInput()">Tampilkan</button>
+                    <div id="hasilInput" class="output"></div>
+                </div>
+            </div>
+
+            <!-- 3. Program Confirm Box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">3</div>
+                    <div class="card-title">Confirm Box</div>
+                </div>
+                <div class="card-content">
+                    <button onclick="tampilkanConfirm()">Hapus Data</button>
+                    <div id="hasilConfirm" class="output"></div>
+                </div>
+            </div>
+
+            <!-- 4. Program Validasi Isian -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">4</div>
+                    <div class="card-title">Validasi Email</div>
+                </div>
+                <div class="card-content">
+                    <input type="email" id="email" placeholder="Masukkan email">
+                    <button onclick="validasiEmail()">Validasi</button>
+                    <div id="hasilValidasi" class="output"></div>
+                </div>
+            </div>
+
+            <!-- 5. Program Radio Box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">5</div>
+                    <div class="card-title">Radio Box</div>
+                </div>
+                <div class="card-content">
+                    <div class="radio-group">
+                        <label><input type="radio" name="hobi" value="Membaca"> Membaca</label>
+                        <label><input type="radio" name="hobi" value="Menulis"> Menulis</label>
+                        <label><input type="radio" name="hobi" value="Bernyanyi"> Bernyanyi</label>
+                    </div>
+                    <button onclick="pilihRadio()">Pilih</button>
+                    <div id="hasilRadio" class="output"></div>
+                </div>
+            </div>
+
+            <!-- 6. Program Verifikasi Password -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">6</div>
+                    <div class="card-title">Verifikasi Password</div>
+                </div>
+                <div class="card-content">
+                    <input type="password" id="password" placeholder="Password">
+                    <input type="password" id="konfirmasiPassword" placeholder="Konfirmasi">
+                    <button onclick="verifikasiPassword()">Verifikasi</button>
+                    <div id="hasilVerifikasi" class="output"></div>
+                </div>
+            </div>
+
+            <!-- 7. Real Time Clock -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">7</div>
+                    <div class="card-title">Real Time Clock</div>
+                </div>
+                <div class="card-content">
+                    <div id="realTime" class="realtime-box"></div>
+                </div>
+            </div>
+
+            <!-- 8. AJAX & jQuery -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">8</div>
+                    <div class="card-title">AJAX & jQuery</div>
+                </div>
+                <div class="card-content">
+                    <p style="font-size:12px; margin-bottom:10px;">AJAX: Async tanpa reload | jQuery: Library JS</p>
+                    <button id="contohJQuery">Contoh jQuery</button>
+                    <div id="hasilAjax" class="output"></div>
+                </div>
+            </div>
+
+            <!-- 9. Menu dengan jQuery -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">9</div>
+                    <div class="card-title">Menu jQuery</div>
+                </div>
+                <div class="card-content">
+                    <div class="menu-jquery">
+                        <button class="menu-btn" data-menu="beranda">Beranda</button>
+                        <button class="menu-btn" data-menu="profil">Profil</button>
+                        <button class="menu-btn" data-menu="kontak">Kontak</button>
+                    </div>
+                    <div id="hasilMenu" class="output">Klik menu di atas</div>
+                </div>
+            </div>
+
+            <!-- 10. Basic Dialog jQuery -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">10</div>
+                    <div class="card-title">Basic Dialog</div>
+                </div>
+                <div class="card-content">
+                    <button id="openDialog">Buka Dialog</button>
+                    <div id="basicDialog" title=" Pesan Manis" style="display:none;">
+                        <p> Halo! Ini adalah dialog jQuery dengan tema soft pink.<br>Selamat belajar JavaScript!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Download Dialog Progressbar -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">11</div>
+                    <div class="card-title">Download Progressbar</div>
+                </div>
+                <div class="card-content">
+                    <button id="downloadProgressBtn"> Mulai Download</button>
+                    <div id="progressDialog" title=" Mengunduh..." style="display:none;">
+                        <div id="progressbar"></div>
+                        <p id="progressText" style="text-align:center; margin-top:10px;">0%</p>
+                    </div>
+                    <div id="hasilDownload" class="output"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <hr>
+             Praktikum 7 - JavaScript | Soft Pink Theme | 11 Program Lengkap 
+        </footer>
+    </div>
+
+    <!-- Load alert.js -->
+    <script src="alert.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // ========== PROGRAM 2: INPUT DATA ==========
+        function tampilkanInput() {
+            let nama = document.getElementById("namaUser").value;
+            let hasil = document.getElementById("hasilInput");
+            if (nama.trim() === "") {
+                hasil.innerHTML = " Nama tidak boleh kosong!";
+            } else {
+                hasil.innerHTML = ` Halo, ${nama}! Selamat belajar JavaScript.`;
+            }
+        }
+
+        // ========== PROGRAM 3: CONFIRM BOX ==========
+        function tampilkanConfirm() {
+            let konfirmasi = confirm("Apakah Anda yakin ingin menghapus data?");
+            let hasil = document.getElementById("hasilConfirm");
+            if (konfirmasi) {
+                hasil.innerHTML = " Data berhasil dihapus.";
+            } else {
+                hasil.innerHTML = " Penghapusan dibatalkan.";
+            }
+        }
+
+        // ========== PROGRAM 4: VALIDASI EMAIL ==========
+        function validasiEmail() {
+            let email = document.getElementById("email").value;
+            let hasil = document.getElementById("hasilValidasi");
+            let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.trim() === "") {
+                hasil.innerHTML = " Email tidak boleh kosong!";
+            } else if (regex.test(email)) {
+                hasil.innerHTML = " Email valid! Terima kasih.";
+            } else {
+                hasil.innerHTML = " Email tidak valid. Contoh: nama@domain.com";
+            }
+        }
+
+        // ========== PROGRAM 5: RADIO BOX ==========
+        function pilihRadio() {
+            let pilihan = document.querySelector('input[name="hobi"]:checked');
+            let hasil = document.getElementById("hasilRadio");
+            if (pilihan) {
+                hasil.innerHTML = ` Hobi yang dipilih: ${pilihan.value} `;
+            } else {
+                hasil.innerHTML = " Silakan pilih salah satu hobi.";
+            }
+        }
+
+        // ========== PROGRAM 6: VERIFIKASI PASSWORD ==========
+        function verifikasiPassword() {
+            let pass = document.getElementById("password").value;
+            let konfirm = document.getElementById("konfirmasiPassword").value;
+            let hasil = document.getElementById("hasilVerifikasi");
+            if (pass === "" || konfirm === "") {
+                hasil.innerHTML = " Password tidak boleh kosong.";
+            } else if (pass === konfirm) {
+                hasil.innerHTML = " Password cocok! Akun aman ";
+            } else {
+                hasil.innerHTML = " Password tidak cocok.";
+            }
+        }
+
+        // ========== PROGRAM 7: REAL TIME CLOCK ==========
+        function updateRealTime() {
+            let now = new Date();
+            let hari = now.toLocaleDateString("id-ID", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            let jam = now.getHours().toString().padStart(2, '0');
+            let menit = now.getMinutes().toString().padStart(2, '0');
+            let detik = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById("realTime").innerHTML = `${hari}<br> ${jam}:${menit}:${detik}`;
+        }
+        setInterval(updateRealTime, 1000);
+        updateRealTime();
+
+        // ========== PROGRAM 8: AJAX & jQuery ==========
+        $(document).ready(function () {
+            $("#contohJQuery").click(function () {
+                $("#hasilAjax").html(" jQuery berhasil!<br>Ini contoh event handler dengan jQuery.");
+                alert("🎉 Contoh jQuery: Tombol diklik!");
+            });
+
+            // ========== PROGRAM 9: MENU JQUERY ==========
+            $(".menu-btn").click(function () {
+                let menu = $(this).data("menu");
+                let teks = "";
+                if (menu === "beranda") teks = " Halaman Beranda - Selamat datang!";
+                else if (menu === "profil") teks = " Profil - Nama: Mahasiswa JS";
+                else if (menu === "kontak") teks = " Kontak - Email: mahasiswa@example.com";
+                $("#hasilMenu").html(` ${teks} (jQuery)`);
+            });
+
+            // ========== PROGRAM 10: BASIC DIALOG ==========
+            $("#basicDialog").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: { "Tutup": function () { $(this).dialog("close"); } }
+            });
+            $("#openDialog").click(function () {
+                $("#basicDialog").dialog("open");
+            });
+
+            // ========== PROGRAM 11: DOWNLOAD PROGRESSBAR ==========
+            $("#progressDialog").dialog({
+                autoOpen: false,
+                modal: true,
+                width: 400
+            });
+
+            $("#downloadProgressBtn").click(function () {
+                $("#progressDialog").dialog("open");
+                $("#progressbar").progressbar({ value: 0 });
+                let progress = 0;
+                let interval = setInterval(function () {
+                    progress += 10;
+                    $("#progressbar").progressbar("value", progress);
+                    $("#progressText").text(progress + "%");
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            $("#progressDialog").dialog("close");
+                            $("#hasilDownload").html(" Unduhan selesai! File berhasil di-download.");
+                            alert(" Unduhan selesai!");
+                        }, 500);
+                    }
+                }, 200);
+            });
+        });
+    </script>
+</body>
+
+</html>

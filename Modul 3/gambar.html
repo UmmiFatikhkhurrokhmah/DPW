@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Halaman Gambar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Doe">
+    <meta name="nim" content="12345">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff0f5;
+            color: #5a3a4a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f9a8c9, #f472b6, #ec4899);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+        }
+
+        header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        section {
+            display: flex;
+            min-height: 400px;
+        }
+
+        nav {
+            float: left;
+            width: 220px;
+            min-height: 400px;
+            background: linear-gradient(180deg, #fce4ec, #f8bbd9);
+            padding: 25px 20px;
+            border-right: 2px solid #f9a8c9;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            background-color: #f9a8c9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav p.nav-title {
+            font-weight: 700;
+            color: #9d174d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f9a8c9;
+        }
+
+        article {
+            float: left;
+            padding: 30px;
+            width: calc(100% - 220px);
+            background-color: #fff5f9;
+            min-height: 400px;
+        }
+
+        article h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #be185d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f9a8c9;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #fce4ec;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            border-color: #ec4899;
+            box-shadow: 0 8px 20px rgba(244, 114, 182, 0.4);
+        }
+
+        /* Placeholder jika gambar tidak ada */
+        .gallery .img-placeholder {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #fce4ec, #f9a8c9);
+            border-radius: 12px;
+            border: 3px dashed #f472b6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #be185d;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                float: none;
+                min-height: auto;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2> Ummi Fatikhkhurrokhmah</h2>
+    </header>
+
+    <section>
+        <nav>
+            <p class="nav-title">Menu</p>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gambar.html"> Gambar</a></li>
+                <li><a href="event.html"> Event</a></li>
+                <li><a href="audio.html"> Audio</a></li>
+                <li><a href="video.html"> Video</a></li>
+                <li><a href="svg.html"> SVG</a></li>
+                <li><a href="canvas.html"> Canvas</a></li>
+                <li><a href="pendaftaran.html"> Pendaftaran</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1>Gambar Pemandangan</h1>
+
+            <div class="gallery">
+                <!-- Ganti src dengan path gambar yang ada di folder gambar -->
+                <img src="pemandangan1.jpg" alt="Pemandangan 1"
+                    onerror="this.outerHTML='<div class=\'img-placeholder\'>pemandangan1.jpg</div>'">
+                <img src="pemandangan2.jpg" alt="Pemandangan 2"
+                    onerror="this.outerHTML='<div class=\'img-placeholder\'>pemandangan2.jpg</div>'">
+                <img src="pemandangan3.jpg" alt="Pemandangan 3"
+                    onerror="this.outerHTML='<div class=\'img-placeholder\'>pemandangan3.jpg</div>'">
+                <img src="pemandangan4.jpg" alt="Pemandangan 4"
+                    onerror="this.outerHTML='<div class=\'img-placeholder\'>pemandangan4.jpg</div>'">
+                <img src="pemandangan5.jpg" alt="Pemandangan 5"
+                    onerror="this.outerHTML='<div class=\'img-placeholder\'>pemandangan5.jpg</div>'">
+                <img src="pemandangan6.jpg" alt="Pemandangan 6"
+                    onerror="this.outerHTML='<div class=\'img-placeholder\'>pemandangan6.jpg</div>'">
+            </div>
+
+            <div style="margin-top:25px; background:white; border-radius:15px; padding:20px; border:1px solid #fce4ec;">
+                <h3 style="color:#ec4899; margin-bottom:8px;">📝 Catatan</h3>
+                <p>Letakkan file gambar di dalam folder <strong style="color:#be185d;">gambar/</strong> sesuai nama file
+                    di atas.
+                    Format yang didukung: JPG, PNG, GIF, WebP.</p>
+                <p style="margin-top:10px; color:#ec4899; font-weight:700;">NIM: 253307005 | Nama: Ummi
+                    Fatikhkhurrokhmah</p>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p> Footer — Hak Cipta &copy; 2026 Ummi Fatikhkhurrokhmah (NIM: 253307005)</p>
+    </footer>
+</body>
+
+</html>

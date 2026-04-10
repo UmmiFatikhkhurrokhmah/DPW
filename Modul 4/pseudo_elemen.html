@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo-elements Selector</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: Georgia, serif;
+      padding: 30px;
+    }
+    h1 { color: #c25070; text-align: center; margin-bottom: 20px; }
+    h2 { color: #a03055; font-size: 16px; margin-top: 20px; margin-bottom: 8px; }
+
+    /* p::first-line — baris pertama paragraf */
+    p.demo1::first-line {
+      background-color: #f8b4c8;
+      color: #7d2a42;
+      font-weight: bold;
+    }
+
+    /* p::first-letter — huruf pertama paragraf */
+    p.demo2::first-letter {
+      font-size: 3em;
+      color: #e75480;
+      font-weight: bold;
+      float: left;
+      margin-right: 6px;
+      line-height: 1;
+    }
+
+    /* ::before dan ::after */
+    p.demo3::before {
+      content: "- ";
+      color: #e75480;
+    }
+    p.demo3::after {
+      content: " -";
+      color: #e75480;
+    }
+
+    .kotak {
+      background: #fff7fa;
+      border: 1px dashed #f4a0bb;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+      line-height: 1.7;
+      color: #6b3a4e;
+    }
+    .label {
+      font-size: 12px;
+      color: #c25070;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pseudo-elements Selector</h1>
+
+  <h2>1. ::first-line — baris pertama berubah warna</h2>
+  <div class="kotak">
+    <div class="label">p::first-line { background-color: #f8b4c8; }</div>
+    <p class="demo1">Belakangan ini tengah ramai menjadi perbincangan netizen, soal platform chat yang memanfaatkan kecanggihan Artificial Intelligence (AI), yakni Chat GPT. Namun tak sedikit pula dari orang-orang, yang penasaran bagaimana cara pakai Chat GPT.</p>
+  </div>
+
+  <h2>2. ::first-letter — huruf pertama diperbesar</h2>
+  <div class="kotak">
+    <div class="label">p::first-letter { font-size: 3em; color: #e75480; }</div>
+    <p class="demo2">Bagi yang belum tahu, platform ini mirip seperti chatbot yang dikembangkan oleh Open AI, startup besutan Elon Musk. Artikel ini telah tayang di TribunJatim.com.</p>
+  </div>
+
+  <h2>3. ::before dan ::after — tambahkan konten sebelum/sesudah</h2>
+  <div class="kotak">
+    <div class="label">p::before { content: "- " } &nbsp; p::after { content: " -" }</div>
+    <p class="demo3">Ini adalah teks dengan hiasan sebelum dan sesudah paragraf menggunakan pseudo-element</p>
+    <p class="demo3">CSS pseudo-element sangat berguna untuk menambahkan dekorasi tanpa mengubah HTML</p>
+  </div>
+</body>
+</html>

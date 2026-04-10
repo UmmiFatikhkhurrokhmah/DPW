@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang Saya — MyPortfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+
+    .navbar { background: #fff; border-bottom: 1px solid #ddd; }
+    .navbar-brand { color: #b5295e; font-weight: 700; letter-spacing: 1px; }
+    .nav-link { color: #555; font-size: .95rem; }
+    .nav-link:hover, .nav-link.aktif { color: #b5295e; }
+
+    .page-header { background: #fdf4f7; padding: 48px 0; border-bottom: 1px solid #eee; }
+    .page-header h1 { font-size: 1.8rem; font-weight: 700; color: #222; margin: 0; }
+    .page-header p { color: #888; margin: 4px 0 0; font-size: .95rem; }
+
+    .section-judul { font-size: 1.2rem; font-weight: 700; color: #222; margin-bottom: 6px; }
+    .garis { width: 40px; height: 3px; background: #b5295e; margin-bottom: 24px; }
+
+    /* FOTO */
+    .foto-wrap {
+      width: 180px; height: 180px; border-radius: 50%;
+      border: 3px solid #e8a0b8;
+      overflow: hidden; margin: 0 auto 12px;
+      background: #f0d6e0;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; position: relative;
+    }
+    .foto-wrap img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .foto-inisial { font-size: 4rem; font-weight: 700; color: #b5295e; }
+    .foto-overlay {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: rgba(181,41,94,.6);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .25s;
+      color: #fff; font-size: .8rem; text-align: center;
+    }
+    .foto-wrap:hover .foto-overlay { opacity: 1; }
+    #inputFoto { display: none; }
+
+    /* INFO TABEL */
+    .info-table td { padding: 8px 0; font-size: .92rem; border-bottom: 1px solid #f5f5f5; }
+    .info-table td:first-child { color: #999; width: 110px; }
+    .info-table td:last-child { color: #222; font-weight: 600; }
+
+    /* SKILL BAR */
+    .skill-row { margin-bottom: 16px; }
+    .skill-row .label { display: flex; justify-content: space-between; font-size: .88rem; color: #555; margin-bottom: 5px; }
+    .progress { height: 8px; border-radius: 4px; background: #f0d6e0; }
+    .progress-bar { background: #b5295e; border-radius: 4px; }
+
+    /* TIMELINE */
+    .tl-item { border-left: 2px solid #e8a0b8; padding-left: 18px; margin-bottom: 22px; }
+    .tl-item .tahun { font-size: .8rem; color: #b5295e; font-weight: 600; }
+    .tl-item h6 { color: #222; font-weight: 600; margin: 2px 0 2px; font-size: .95rem; }
+    .tl-item p { color: #888; font-size: .88rem; margin: 0; }
+
+    .btn-utama { background: #b5295e; color: #fff; border: none; border-radius: 4px; padding: 10px 24px; font-size: .9rem; }
+    .btn-utama:hover { background: #8e1f48; color: #fff; }
+
+    footer { background: #222; color: #aaa; padding: 28px 0; text-align: center; font-size: .88rem; }
+    footer small { color: #666; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">PORTFOLIO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link aktif" href="about.html">Tentang Saya</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portofolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Tentang Saya</h1>
+    <p>Informasi lengkap mengenai profil dan kemampuan saya</p>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gy-5">
+
+      <!-- KOLOM KIRI -->
+      <div class="col-lg-4 text-center">
+        <div class="foto-wrap" onclick="document.getElementById('inputFoto').click()" title="Klik untuk upload foto">
+          <span class="foto-inisial" id="inisial">U</span>
+          <img id="gambarProfil" src="" alt="Foto Profil"/>
+          <div class="foto-overlay">Klik untuk<br>ganti foto</div>
+        </div>
+        <input type="file" id="inputFoto" accept="image/*" onchange="gantiFoto(event)"/>
+        <p style="font-size:.78rem; color:#aaa;">Klik foto untuk mengunggah</p>
+
+        <h5 style="color:#222; font-weight:700; margin-bottom:2px;">Ummi Fatikhkhurrokhmah</h5>
+        <p style="color:#b5295e; font-size:.9rem; margin-bottom:20px;">253307005</p>
+
+        <table class="info-table w-100 text-start">
+          <tr><td>Email</td><td>Miyciyaa@gmail.com</td></tr>
+          <tr><td>Telepon</td><td>082338000342</td></tr>
+          <tr><td>Kota</td><td>Kabupaten Nganjuk</td></tr>
+          <tr><td>Universitas</td><td>Politeknik Negeri Madiun</td></tr>
+          <tr><td>Jurusan</td><td>Teknologi Informasi</td></tr>
+          <tr><td>Semester</td><td>Semester 2</td></tr>
+        </table>
+
+        <a href="contact.html" class="btn btn-utama mt-4 w-100">Hubungi Saya</a>
+      </div>
+
+      <!-- KOLOM KANAN -->
+      <div class="col-lg-8">
+
+        <p class="section-judul">Profil Singkat</p>
+        <div class="garis"></div>
+        <p style="color:#555; line-height:1.9; font-size:.95rem;">Saya adalah mahasiswa Teknologi Infomasi yang aktif belajar pengembangan web. Saya memiliki minat dalam membuat website yang fungsional, responsif, dan mudah digunakan oleh pengguna. Saya selalu berusaha meningkatkan kemampuan melalui proyek-proyek mandiri.</p>
+
+        <p class="section-judul mt-4">Kemampuan</p>
+        <div class="garis"></div>
+
+        <div class="skill-row">
+          <div class="label"><span>HTML &amp; CSS</span><span>90%</span></div>
+          <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="label"><span>Bootstrap 5</span><span>80%</span></div>
+          <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="label"><span>JavaScript</span><span>65%</span></div>
+          <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="label"><span>PHP &amp; MySQL</span><span>55%</span></div>
+          <div class="progress"><div class="progress-bar" style="width:55%"></div></div>
+        </div>
+
+        <p class="section-judul mt-4">Riwayat Pendidikan</p>
+        <div class="garis"></div>
+
+        <div class="tl-item">
+          <div class="tahun">2025 &ndash; Sekarang</div>
+          <h6>D3 Teknologi Informasi</h6>
+          <p>Politeknik Negeri Madiun</p>
+        </div>
+        <div class="tl-item">
+          <div class="tahun">2022 &ndash; 2025</div>
+          <h6>SMK</h6>
+          <p>SMK AL Amin</p>
+        </div>
+        <div class="tl-item">
+          <div class="tahun">2018 &ndash; 2022</div>
+          <h6>MTS</h6>
+          <p>MTS AL Amin</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="mb-1">&copy; 2026 Portfolio. Dibuat dengan Bootstrap 5.</p>
+  <small>Ummi Fatikhkhurrokhmah &mdash; 253307005</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function gantiFoto(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      var img = document.getElementById('gambarProfil');
+      document.getElementById('inisial').style.display = 'none';
+      img.src = ev.target.result;
+      img.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+</script>
+</body>
+</html>

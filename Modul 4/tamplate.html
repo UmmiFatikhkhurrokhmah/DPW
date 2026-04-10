@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Template Website CSS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #fff0f5;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        #header {
+            background-color: #e75480;
+            color: white;
+            padding: 20px 28px;
+            width: 100%;
+        }
+
+        #header h1 {
+            font-size: 32px;
+            color: #fff0f5;
+            letter-spacing: 1px;
+        }
+
+        #header p {
+            font-size: 14px;
+            color: #ffd6e7;
+            margin-top: 4px;
+        }
+
+        /* WRAPPER */
+        #wrapper {
+            display: flex;
+            min-height: 340px;
+            border: 1px solid #f4a0bb;
+            margin: 0;
+        }
+
+        /* SIDEBAR KIRI */
+        #sidebar-left {
+            width: 180px;
+            min-width: 180px;
+            border: 1.5px dashed #c25070;
+            padding: 16px;
+            background-color: #fff7fa;
+        }
+
+        #sidebar-left ul {
+            list-style: none;
+        }
+
+        #sidebar-left ul li {
+            margin-bottom: 10px;
+        }
+
+        #sidebar-left ul li a {
+            text-decoration: none;
+            color: #a03055;
+            font-size: 15px;
+        }
+
+        #sidebar-left ul li a:hover {
+            text-decoration: underline;
+            color: #e75480;
+            font-weight: bold;
+        }
+
+        /* Link default & hover label */
+        .link-label {
+            font-size: 11px;
+            color: #c25070;
+            margin-left: 6px;
+            font-style: italic;
+        }
+
+        /* DIVIDER */
+        #divider {
+            width: 1px;
+            background-color: #f4a0bb;
+        }
+
+        /* MAIN CONTENT */
+        #main {
+            flex: 1;
+            padding: 24px;
+            background-color: #fff7fa;
+            text-align: center;
+        }
+
+        #main img {
+            width: 90px;
+            height: auto;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #main h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #7d2a42;
+            margin-bottom: 4px;
+        }
+
+        #main h3 {
+            font-size: 18px;
+            color: #7d2a42;
+            margin-bottom: 12px;
+        }
+
+        #main p {
+            color: #e75480;
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 380px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        #footer {
+            background-color: #f8b4c8;
+            color: #7d2a42;
+            text-align: right;
+            padding: 12px 24px;
+            font-size: 14px;
+            border-top: 1px solid #f4a0bb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">
+        <h1>Halo CSS !</h1>
+        <p>Ini adalah website CSS saya</p>
+    </div>
+
+    <div id="wrapper">
+
+        <div id="sidebar-left">
+            <ul>
+                <li><a href="#">Menu 1</a></li>
+                <li><a href="#">Menu 2</a></li>
+                <li><a href="#">Menu 3</a></li>
+                <li><a href="#">Menu 4</a></li>
+                <li><a href="#">Menu 5</a></li>
+                <li>
+                    <a href="#" style="font-weight:bold; text-decoration:underline;">Menu 6</a>
+                    <span class="link-label">Link default</span>
+                </li>
+                <li>
+                    <a href="#" class="hover-demo">Menu 6</a>
+                    <span class="link-label">Link hover</span>
+                </li>
+            </ul>
+        </div>
+
+        <div id="divider"></div>
+
+        <div id="main">
+            <!-- Ganti src dengan path logo jika ada file logo -->
+            <img src="LOGO Politeknik_Negeri_Madiun.webp" alt="Logo Politeknik Negeri Madiun"
+                onerror="this.style.display='none'">
+            <h2>TI</h2>
+            <h3>Politeknik Negeri Madiun</h3>
+            <p>
+                Mewujudkan pendidikan tinggi vokasi dalam bidang
+                Teknologi Informasi dan penerapannya yang berkualitas,
+                inovatif dan berdaya saing Nasional.
+            </p>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        Ummi Fatikhkhurrokhmah &nbsp;|&nbsp; 253307005 &nbsp;|&nbsp; TI-2A
+    </div>
+
+</body>
+
+</html>

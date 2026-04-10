@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Halaman Event</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Doe">
+    <meta name="nim" content="12345">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff0f5;
+            color: #5a3a4a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f9a8c9, #f472b6, #ec4899);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+        }
+
+        header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        section {
+            display: flex;
+            min-height: 400px;
+        }
+
+        nav {
+            float: left;
+            width: 220px;
+            min-height: 400px;
+            background: linear-gradient(180deg, #fce4ec, #f8bbd9);
+            padding: 25px 20px;
+            border-right: 2px solid #f9a8c9;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            background-color: #f9a8c9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav p.nav-title {
+            font-weight: 700;
+            color: #9d174d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f9a8c9;
+        }
+
+        article {
+            float: left;
+            padding: 30px;
+            width: calc(100% - 220px);
+            background-color: #fff5f9;
+            min-height: 400px;
+        }
+
+        article h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #be185d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f9a8c9;
+        }
+
+        /* Log Box */
+        #event-log {
+            background: white;
+            border: 2px solid #f9a8c9;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            min-height: 55px;
+            font-size: 0.9rem;
+            color: #be185d;
+            font-weight: 600;
+        }
+
+        #event-log span {
+            display: inline-block;
+            background: #fce4ec;
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin: 3px;
+            animation: pop 0.3s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery .img-box {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #fce4ec;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
+        }
+
+        .gallery .img-box img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .gallery .img-placeholder {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #fce4ec, #f9a8c9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #be185d;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(236, 72, 153, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .img-box:hover .overlay {
+            opacity: 1;
+        }
+
+        .img-box:active {
+            transform: scale(0.96);
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #ec4899;
+            color: white;
+            border-radius: 10px;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                float: none;
+                min-height: auto;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2> Ummi Fatikhkhurrokhmah</h2>
+    </header>
+
+    <section>
+        <nav>
+            <p class="nav-title">Menu</p>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gambar.html"> Gambar</a></li>
+                <li><a href="event.html"> Event</a></li>
+                <li><a href="audio.html"> Audio</a></li>
+                <li><a href="video.html"> Video</a></li>
+                <li><a href="svg.html"> SVG</a></li>
+                <li><a href="canvas.html"> Canvas</a></li>
+                <li><a href="pendaftaran.html"> Pendaftaran</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1> Mouse Event pada Gambar</h1>
+
+            <!-- Log Event -->
+            <div id="event-log">
+                <em style="color:#d1a0b5;"> Coba arahkan atau klik gambar di bawah ini...</em>
+            </div>
+
+            <div class="gallery">
+
+                <!-- Gambar 1: onmouseover + onmouseout -->
+                <div class="img-box" onmouseover="logEvent('🖱️ Mouse masuk ke Gambar 1')"
+                    onmouseout="logEvent('👋 Mouse keluar dari Gambar 1')">
+                    <img src="pemandangan1.jpg" alt="Pemandangan 1"
+                        onerror="this.outerHTML='<div class=\'img-placeholder\'>📷 Gambar 1</div>'">
+                    <div class="overlay">Mouse Over / Out</div>
+                    <span class="event-badge">mouseover</span>
+                </div>
+
+                <!-- Gambar 2: onclick -->
+                <div class="img-box" onclick="logEvent('✅ Gambar 2 di-KLIK!')">
+                    <img src="pemandangan2.jpg" alt="Pemandangan 2"
+                        onerror="this.outerHTML='<div class=\'img-placeholder\'>📷 Gambar 2</div>'">
+                    <div class="overlay">Klik Saya!</div>
+                    <span class="event-badge">onclick</span>
+                </div>
+
+                <!-- Gambar 3: ondblclick -->
+                <div class="img-box" ondblclick="logEvent('⚡ Gambar 3 di-DOUBLE KLIK!')">
+                    <img src="pemandangan3.jpg" alt="Pemandangan 3"
+                        onerror="this.outerHTML='<div class=\'img-placeholder\'>📷 Gambar 3</div>'">
+                    <div class="overlay">Double Klik!</div>
+                    <span class="event-badge">dblclick</span>
+                </div>
+
+                <!-- Gambar 4: onmousedown + onmouseup -->
+                <div class="img-box" onmousedown="logEvent('⬇️ Mouse ditekan di Gambar 4')"
+                    onmouseup="logEvent('⬆️ Mouse dilepas di Gambar 4')">
+                    <img src="pemandangan4.jpg" alt="Pemandangan 4"
+                        onerror="this.outerHTML='<div class=\'img-placeholder\'>📷 Gambar 4</div>'">
+                    <div class="overlay">Tekan & Lepas</div>
+                    <span class="event-badge">mousedown/up</span>
+                </div>
+
+                <!-- Gambar 5: onmousemove -->
+                <div class="img-box" onmousemove="logEvent('↔️ Mouse bergerak di Gambar 5')">
+                    <img src="pemandangan5.jpg" alt="Pemandangan 5"
+                        onerror="this.outerHTML='<div class=\'img-placeholder\'>📷 Gambar 5</div>'">
+                    <div class="overlay">Gerakkan Mouse</div>
+                    <span class="event-badge">mousemove</span>
+                </div>
+
+                <!-- Gambar 6: oncontextmenu (klik kanan) -->
+                <div class="img-box" oncontextmenu="logEvent('🔔 Klik kanan di Gambar 6'); return false;">
+                    <img src="pemandangan6.jpg" alt="Pemandangan 6"
+                        onerror="this.outerHTML='<div class=\'img-placeholder\'> Gambar 6</div>'">
+                    <div class="overlay">Klik Kanan!</div>
+                    <span class="event-badge">contextmenu</span>
+                </div>
+
+            </div><!-- end gallery -->
+
+            <div style="margin-top:25px; background:white; border-radius:15px; padding:20px; border:1px solid #fce4ec;">
+                <h3 style="color:#ec4899; margin-bottom:8px;">📝 Kesimpulan</h3>
+                <p>Mouse Event memungkinkan kita mendeteksi berbagai interaksi pengguna dengan mouse seperti:
+                    <strong>onclick</strong> (klik), <strong>ondblclick</strong> (klik ganda),
+                    <strong>onmouseover/out</strong> (masuk/keluar area), <strong>onmousedown/up</strong> (tekan/lepas),
+                    dan <strong>onmousemove</strong> (gerak). Event ini membuat halaman lebih interaktif.
+                </p>
+                <p style="margin-top:10px; color:#ec4899; font-weight:700;">NIM: 253307005 | Nama: Ummi
+                    Fatikhkhurrokhmah</p>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p> Footer — Hak Cipta &copy; 2026 Ummi Fatikhkhurrokhmah (NIM: 253307005)</p>
+    </footer>
+
+    <script>
+        let lastLog = '';
+        function logEvent(msg) {
+            // Hindari spam mousemove
+            if (msg === lastLog && msg.includes('bergerak')) return;
+            lastLog = msg;
+            const log = document.getElementById('event-log');
+            log.innerHTML = '<span>' + msg + '</span>';
+            setTimeout(() => {
+                if (log.querySelector('span')) {
+                    log.innerHTML = '<em style="color:#d1a0b5;">🔎 Coba arahkan atau klik gambar di atas...</em>';
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

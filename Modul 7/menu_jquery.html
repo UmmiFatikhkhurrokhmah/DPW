@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu dengan jQuery - Soft Pink</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe4ec 0%, #ffd9e4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+            max-width: 600px;
+            margin: 20px;
+            border: 1px solid #ffc0d0;
+        }
+        h1 {
+            color: #d46b8c;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            color: #e8a2b9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .menu {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .menu-item {
+            background: #ffdfe8;
+            border: 1px solid #ffc0d0;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #5e3a4b;
+            transition: 0.2s;
+        }
+        .menu-item:hover {
+            background: #ffc0d0;
+            transform: scale(1.05);
+        }
+        .content {
+            background: #fff8fa;
+            padding: 30px;
+            border-radius: 28px;
+            text-align: center;
+            min-height: 150px;
+            color: #b0577a;
+        }
+        .content h2 {
+            color: #d46b8c;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1> Menu dengan jQuery </h1>
+        <p class="subtitle">Klik menu di bawah ini</p>
+        
+        <div class="menu">
+            <div class="menu-item" data-menu="beranda"> Beranda</div>
+            <div class="menu-item" data-menu="profil"> Profil</div>
+            <div class="menu-item" data-menu="kontak"> Kontak</div>
+            <div class="menu-item" data-menu="galeri"> Galeri</div>
+        </div>
+        
+        <div id="content" class="content">
+            <h2> Selamat Datang </h2>
+            <p>Silakan klik menu di atas untuk melihat kontennya.</p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".menu-item").click(function() {
+                let menu = $(this).data("menu");
+                let content = $("#content");
+                
+                if (menu === "beranda") {
+                    content.html("<h2> Beranda</h2><p>Selamat datang di halaman utama! Website ini dibuat dengan jQuery dan tema soft pink. </p>");
+                } else if (menu === "profil") {
+                    content.html("<h2> Profil</h2><p>Nama: Mahasiswa Praktikum<br>Hobi: Coding & Design<br>Semangat belajar JavaScript!</p>");
+                } else if (menu === "kontak") {
+                    content.html("<h2> Kontak</h2><p>Email: mahasiswa@example.com<br>Telepon: 0812-3456-7890<br>Instagram: @praktikum_js</p>");
+                } else if (menu === "galeri") {
+                    content.html("<h2> Galeri</h2><p> Gambar 1 |  Gambar 2 |  Gambar 3<br>Galeri foto dengan tema soft pink yang manis.</p>");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

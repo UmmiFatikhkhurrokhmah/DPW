@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontak — MyPortfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+
+    .navbar { background: #fff; border-bottom: 1px solid #ddd; }
+    .navbar-brand { color: #b5295e; font-weight: 700; letter-spacing: 1px; }
+    .nav-link { color: #555; font-size: .95rem; }
+    .nav-link:hover, .nav-link.aktif { color: #b5295e; }
+
+    .page-header { background: #fdf4f7; padding: 48px 0; border-bottom: 1px solid #eee; }
+    .page-header h1 { font-size: 1.8rem; font-weight: 700; color: #222; margin: 0; }
+    .page-header p { color: #888; margin: 4px 0 0; font-size: .95rem; }
+
+    .section-judul { font-size: 1.2rem; font-weight: 700; color: #222; margin-bottom: 6px; }
+    .garis { width: 40px; height: 3px; background: #b5295e; margin-bottom: 24px; }
+
+    /* INFO */
+    .info-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+    .info-item .label { font-size: .8rem; color: #aaa; margin: 0; }
+    .info-item .val { font-size: .95rem; color: #222; font-weight: 600; margin: 0; }
+    .info-icon { width: 40px; height: 40px; border-radius: 50%; background: #fdf4f7; border: 1px solid #e8a0b8; display: flex; align-items: center; justify-content: center; color: #b5295e; font-size: .9rem; font-weight: 700; flex-shrink: 0; }
+
+    /* FORM */
+    .form-card { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 30px; }
+    .form-label { font-size: .88rem; color: #555; font-weight: 600; margin-bottom: 5px; }
+    .form-control, .form-select { border: 1px solid #ddd; border-radius: 5px; font-size: .92rem; }
+    .form-control:focus, .form-select:focus { border-color: #b5295e; box-shadow: 0 0 0 3px rgba(181,41,94,.1); }
+    textarea.form-control { min-height: 120px; resize: vertical; }
+
+    .btn-utama { background: #b5295e; color: #fff; border: none; border-radius: 4px; padding: 10px 28px; font-size: .9rem; }
+    .btn-utama:hover { background: #8e1f48; color: #fff; }
+
+    .alert-sukses { background: #fdf4f7; border: 1px solid #e8a0b8; color: #8e1f48; border-radius: 5px; padding: 12px 16px; display: none; margin-bottom: 16px; font-size: .9rem; }
+
+    /* JAM KERJA */
+    .jam-table td { padding: 8px 0; font-size: .9rem; border-bottom: 1px solid #f5f5f5; }
+    .jam-table td:first-child { color: #888; }
+    .jam-table td:last-child { text-align: right; font-weight: 600; color: #222; }
+
+    footer { background: #222; color: #aaa; padding: 28px 0; text-align: center; font-size: .88rem; }
+    footer small { color: #666; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">PORTFOLIO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Tentang Saya</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portofolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link aktif" href="contact.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Kontak</h1>
+    <p>Silakan hubungi saya untuk pertanyaan atau kerja sama</p>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- FORM -->
+      <div class="col-lg-7">
+        <div class="form-card">
+          <p class="section-judul">Kirim Pesan</p>
+          <div class="garis"></div>
+
+          <div id="alertSukses" class="alert-sukses">
+            Pesan berhasil dikirim. Saya akan membalas secepatnya.
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="nama" placeholder="Nama Anda"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Alamat Email</label>
+              <input type="email" class="form-control" id="email" placeholder="email@gmail.com"/>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Subjek</label>
+              <input type="text" class="form-control" placeholder="Topik pesan"/>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Pesan</label>
+              <textarea class="form-control" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-utama" onclick="kirim()">Kirim Pesan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="col-lg-5">
+        <p class="section-judul">Informasi Kontak</p>
+        <div class="garis"></div>
+
+        <div class="info-item">
+          <div class="info-icon">@</div>
+          <div>
+            <p class="label">Email</p>
+            <p class="val">Miyciyaa@gmail.com</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">WA</div>
+          <div>
+            <p class="label">WhatsApp</p>
+            <p class="val">+62 82338000342</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">IN</div>
+          <div>
+            <p class="label">Instagram</p>
+            <p class="val">@Miciiyaww</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">GH</div>
+          <div>
+            <p class="label">GitHub</p>
+            <p class="val">github.com/username</p>
+          </div>
+        </div>
+
+        <p class="section-judul mt-4">Jam Aktif</p>
+        <div class="garis"></div>
+        <table class="jam-table w-100">
+          <tr><td>Senin &ndash; Jumat</td><td>08.00 &ndash; 20.00</td></tr>
+          <tr><td>Sabtu</td><td>09.00 &ndash; 15.00</td></tr>
+          <tr><td>Minggu</td><td style="color:#b5295e;">Libur</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="mb-1">&copy; 2026 Portfolio. Dibuat dengan Bootstrap 5.</p>
+  <small>Ummi Fatikhkhurrokhmah &mdash; 253307005</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function kirim() {
+    var nama = document.getElementById('nama').value.trim();
+    var email = document.getElementById('email').value.trim();
+    if (!nama || !email) { alert('Harap isi nama dan email terlebih dahulu.'); return; }
+    var a = document.getElementById('alertSukses');
+    a.style.display = 'block';
+    setTimeout(function(){ a.style.display = 'none'; }, 5000);
+  }
+</script>
+</body>
+</html>

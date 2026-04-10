@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Halaman Beranda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Doe"><!-- ubah dengan nama anda -->
+    <meta name="nim" content="12345"><!-- ubah dengan nim anda -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff0f5;
+            color: #5a3a4a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f9a8c9, #f472b6, #ec4899);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+        }
+
+        header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        section {
+            display: flex;
+            min-height: 400px;
+        }
+
+        nav {
+            float: left;
+            width: 220px;
+            min-height: 400px;
+            background: linear-gradient(180deg, #fce4ec, #f8bbd9);
+            padding: 25px 20px;
+            border-right: 2px solid #f9a8c9;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            background-color: #f9a8c9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav p.nav-title {
+            font-weight: 700;
+            color: #9d174d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f9a8c9;
+        }
+
+        article {
+            float: left;
+            padding: 30px;
+            width: calc(100% - 220px);
+            background-color: #fff5f9;
+            min-height: 400px;
+        }
+
+        article h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #be185d;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f9a8c9;
+        }
+
+        article p {
+            line-height: 1.8;
+            color: #6b4258;
+            font-size: 1rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #fce4ec;
+            box-shadow: 0 2px 10px rgba(244, 114, 182, 0.1);
+        }
+
+        .info-card h3 {
+            color: #ec4899;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                float: none;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2> Ummi Fatikhkhurrokhmah</h2>
+    </header>
+
+    <section>
+        <nav>
+            <p class="nav-title">Menu</p>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gambar.html"> Gambar</a></li>
+                <li><a href="event.html"> Event</a></li>
+                <li><a href="audio.html"> Audio</a></li>
+                <li><a href="video.html"> Video</a></li>
+                <li><a href="svg.html"> SVG</a></li>
+                <li><a href="canvas.html"> Canvas</a></li>
+                <li><a href="pendaftaran.html"> Pendaftaran</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1>Ummi Fatikhkhurrokhmah</h1>
+            <p>Selamat datang di halaman beranda website ini! </p>
+
+            <div class="info-card">
+                <h3> Tentang Halaman Ini</h3>
+                <p>
+                    Ini adalah contoh halaman HTML5 dengan struktur semantik yang benar menggunakan
+                    elemen-elemen seperti &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, dan
+                    &lt;footer&gt;.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3> Kesimpulan</h3>
+                <p>
+                    Dengan menggunakan elemen-elemen semantik HTML5, struktur halaman web menjadi
+                    lebih terorganisir, mudah dibaca, dan lebih baik untuk aksesibilitas dan SEO.
+                    CSS dapat digunakan untuk menata tampilan setiap elemen secara terpisah.
+                </p>
+                <p style="margin-top:10px; color:#ec4899; font-weight:700;">
+                    NIM: 253307005 | Nama: Ummi Fatikhkhurrokhmah
+                </p>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p> Footer — Hak Cipta &copy; 2026 Ummi Fatikhkhurrokhmah (NIM: 253307005)</p>
+    </footer>
+</body>
+
+</html>

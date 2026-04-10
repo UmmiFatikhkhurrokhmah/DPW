@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Combinator Selector</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: Georgia, serif;
+      padding: 30px;
+    }
+    h1 { color: #c25070; text-align: center; margin-bottom: 20px; }
+
+    div p { /* no 1 - descendant: semua <p> di dalam <div> */
+      color: red;
+      padding: 6px;
+    }
+    div > p { /* no 2 - child: <p> langsung anak dari <div> */
+      background-color: #ffd6e7;
+    }
+    div + p { /* no 3 - adjacent sibling: <p> tepat setelah <div> */
+      background-color: #f8b4c8;
+    }
+    div ~ p { /* no 4 - general sibling: semua <p> saudara setelah <div> */
+      color: #c25070;
+    }
+
+    .keterangan {
+      font-style: italic;
+      color: #7d2a42;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .kotak { border: 1px dashed #f4a0bb; padding: 10px; margin-bottom: 10px; background: #fff7fa; }
+  </style>
+</head>
+<body>
+  <h1>Combinator Selector</h1>
+
+  <div>
+    <p>This is a paragraph. <br>
+      <span class="keterangan">
+        ✦ Selektor no 1 (div p): Paragraf ini berada di dalam div, sehingga warnanya merah.<br>
+        ✦ Selektor no 2 (div &gt; p): Paragraf ini adalah anak langsung dari div, background menjadi pink muda.
+      </span>
+    </p>
+    <p>This is a paragraph. <br>
+      <span class="keterangan">
+        ✦ Selektor no 1 (div p): Paragraf ini juga di dalam div, warna tetap merah.<br>
+        ✦ Selektor no 2 (div &gt; p): Background pink muda karena anak langsung div.
+      </span>
+    </p>
+  </div>
+
+  <p>This is a paragraph. <br>
+    <span class="keterangan">
+      ✦ Selektor no 3 (div + p): Paragraf ini tepat setelah penutup &lt;/div&gt;, background menjadi pink lebih gelap.<br>
+      ✦ Selektor no 4 (div ~ p): Paragraf ini juga saudara div, warna teks menjadi pink tua.
+    </span>
+  </p>
+  <p>This is a paragraph. <br>
+    <span class="keterangan">
+      ✦ Selektor no 4 (div ~ p): Paragraf ini adalah saudara umum div (bukan tepat setelah), hanya berlaku selektor no 4 (warna pink tua).
+    </span>
+  </p>
+</body>
+</html>

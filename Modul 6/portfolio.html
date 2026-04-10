@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio — MyPortfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+
+    .navbar { background: #fff; border-bottom: 1px solid #ddd; }
+    .navbar-brand { color: #b5295e; font-weight: 700; letter-spacing: 1px; }
+    .nav-link { color: #555; font-size: .95rem; }
+    .nav-link:hover, .nav-link.aktif { color: #b5295e; }
+
+    .page-header { background: #fdf4f7; padding: 48px 0; border-bottom: 1px solid #eee; }
+    .page-header h1 { font-size: 1.8rem; font-weight: 700; color: #222; margin: 0; }
+    .page-header p { color: #888; margin: 4px 0 0; font-size: .95rem; }
+
+    .section-judul { font-size: 1.2rem; font-weight: 700; color: #222; margin-bottom: 6px; }
+    .garis { width: 40px; height: 3px; background: #b5295e; margin-bottom: 28px; }
+
+    /* FILTER */
+    .filter-btn { border: 1px solid #ccc; color: #555; background: #fff; border-radius: 4px; padding: 5px 16px; font-size: .88rem; cursor: pointer; margin: 3px; transition: all .2s; }
+    .filter-btn:hover, .filter-btn.aktif { background: #b5295e; color: #fff; border-color: #b5295e; }
+
+    /* KARTU PROYEK */
+    .kartu-proyek { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; height: 100%; transition: border-color .2s, box-shadow .2s; }
+    .kartu-proyek:hover { border-color: #e8a0b8; box-shadow: 0 4px 16px rgba(181,41,94,.08); }
+    .kartu-thumb { height: 140px; display: flex; align-items: center; justify-content: center; background: #fdf4f7; }
+    .kartu-thumb span { font-size: 2.5rem; color: #b5295e; font-weight: 700; }
+    .kartu-body { padding: 16px; }
+    .kartu-body h6 { color: #222; font-weight: 700; margin-bottom: 5px; font-size: .95rem; }
+    .kartu-body p { color: #888; font-size: .85rem; margin-bottom: 10px; }
+    .tag { background: #fdf4f7; color: #b5295e; border: 1px solid #e8a0b8; padding: 2px 9px; border-radius: 3px; font-size: .75rem; margin: 2px; display: inline-block; }
+
+    footer { background: #222; color: #aaa; padding: 28px 0; text-align: center; font-size: .88rem; }
+    footer small { color: #666; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">PORTFOLIO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Tentang Saya</a></li>
+        <li class="nav-item"><a class="nav-link aktif" href="portfolio.html">Portofolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Portofolio</h1>
+    <p>Daftar proyek yang telah saya kerjakan</p>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container">
+
+    <div class="mb-4">
+      <button class="filter-btn aktif" onclick="filter(this,'semua')">Semua</button>
+      <button class="filter-btn" onclick="filter(this,'web')">Website</button>
+      <button class="filter-btn" onclick="filter(this,'app')">Aplikasi</button>
+      <button class="filter-btn" onclick="filter(this,'ui')">UI Design</button>
+    </div>
+
+    <div class="row g-4" id="grid">
+
+      <div class="col-md-6 col-lg-4 item" data-kat="web">
+        <div class="kartu-proyek">
+          <div class="kartu-thumb"><span>WEB</span></div>
+          <div class="kartu-body">
+            <h6>Website Toko Online</h6>
+            <p>Halaman toko online responsif dengan tampilan modern menggunakan Bootstrap 5.</p>
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 item" data-kat="app">
+        <div class="kartu-proyek">
+          <div class="kartu-thumb"><span>APP</span></div>
+          <div class="kartu-body">
+            <h6>Aplikasi To-Do List</h6>
+            <p>Aplikasi manajemen tugas harian dengan fitur tambah, edit, dan hapus.</p>
+            <span class="tag">JavaScript</span><span class="tag">HTML</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 item" data-kat="ui">
+        <div class="kartu-proyek">
+          <div class="kartu-thumb"><span>UI</span></div>
+          <div class="kartu-body">
+            <h6>Desain Dashboard Admin</h6>
+            <p>Tampilan dashboard admin dengan komponen tabel, chart, dan statistik.</p>
+            <span class="tag">Bootstrap</span><span class="tag">UI Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 item" data-kat="web">
+        <div class="kartu-proyek">
+          <div class="kartu-thumb"><span>WEB</span></div>
+          <div class="kartu-body">
+            <h6>Website Blog Pribadi</h6>
+            <p>Website blog dengan sistem manajemen artikel menggunakan PHP dan MySQL.</p>
+            <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 item" data-kat="app">
+        <div class="kartu-proyek">
+          <div class="kartu-thumb"><span>APP</span></div>
+          <div class="kartu-body">
+            <h6>Kalkulator Interaktif</h6>
+            <p>Kalkulator berbasis web menggunakan JavaScript tanpa library tambahan.</p>
+            <span class="tag">JavaScript</span><span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 item" data-kat="ui">
+        <div class="kartu-proyek">
+          <div class="kartu-thumb"><span>UI</span></div>
+          <div class="kartu-body">
+            <h6>Desain Aplikasi Mobile</h6>
+            <p>Rancangan antarmuka aplikasi kesehatan untuk platform Android.</p>
+            <span class="tag">Figma</span><span class="tag">UI/UX</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="mb-1">&copy; 2026 Portfolio. Dibuat dengan Bootstrap 5.</p>
+  <small>Ummi Fatikhkhurrokhmah &mdash; 253307005</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function filter(btn, kat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('aktif'));
+    btn.classList.add('aktif');
+    document.querySelectorAll('.item').forEach(item => {
+      item.style.display = (kat === 'semua' || item.dataset.kat === kat) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

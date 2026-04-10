@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Halaman SVG</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="John Doe">
+    <meta name="nim" content="12345">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff0f5;
+            color: #5a3a4a;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f9a8c9, #f472b6, #ec4899);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+        }
+
+        header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 2px;
+        }
+
+        section {
+            display: flex;
+            min-height: 400px;
+        }
+
+        nav {
+            float: left;
+            width: 220px;
+            min-height: 400px;
+            background: linear-gradient(180deg, #fce4ec, #f8bbd9);
+            padding: 25px 20px;
+            border-right: 2px solid #f9a8c9;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: #be185d;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            background-color: #f9a8c9;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        nav p.nav-title {
+            font-weight: 700;
+            color: #9d174d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f9a8c9;
+        }
+
+        article {
+            float: left;
+            padding: 30px;
+            width: calc(100% - 220px);
+            background-color: #fff5f9;
+            min-height: 400px;
+        }
+
+        article h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #be185d;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f9a8c9;
+        }
+
+        .svg-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid #fce4ec;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .svg-card .desc {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .svg-card h3 {
+            color: #ec4899;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .svg-card p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #6b4258;
+        }
+
+        .code-tag {
+            display: inline-block;
+            background: #fce4ec;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #be185d;
+        }
+
+        svg {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        svg:hover {
+            transform: scale(1.08);
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f9a8c9, #ec4899);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+
+            nav,
+            article {
+                width: 100%;
+                float: none;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2> Ummi Fatikhkhurrokhmah</h2>
+    </header>
+
+    <section>
+        <nav>
+            <p class="nav-title">Menu</p>
+            <ul>
+                <li><a href="index.html"> Home</a></li>
+                <li><a href="gambar.html"> Gambar</a></li>
+                <li><a href="event.html"> Event</a></li>
+                <li><a href="audio.html"> Audio</a></li>
+                <li><a href="video.html"> Video</a></li>
+                <li><a href="svg.html"> SVG</a></li>
+                <li><a href="canvas.html"> Canvas</a></li>
+                <li><a href="pendaftaran.html"> Pendaftaran</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h1> Grafis SVG HTML5</h1>
+
+            <!-- Lingkaran -->
+            <div class="svg-card">
+                <svg width="100" height="100">
+                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+                </svg>
+                <div class="desc">
+                    <h3> Lingkaran (Circle)</h3>
+                    <p>Dibuat dengan tag <span class="code-tag">&lt;circle&gt;</span>.<br>
+                        <strong>cx, cy</strong> = posisi pusat | <strong>r</strong> = jari-jari<br>
+                        <strong>stroke</strong> = warna garis tepi | <strong>fill</strong> = warna isi
+                    </p>
+                </div>
+            </div>
+
+            <!-- Persegi panjang biru -->
+            <div class="svg-card">
+                <svg width="420" height="100">
+                    <rect width="400" height="100" style="fill:rgb(0,0,255);stroke-width:10;stroke:rgb(0,0,0)" />
+                </svg>
+                <div class="desc">
+                    <h3> Persegi Panjang Biru</h3>
+                    <p>Dibuat dengan tag <span class="code-tag">&lt;rect&gt;</span>.<br>
+                        Menggunakan CSS inline: <strong>fill</strong>, <strong>stroke-width</strong>,
+                        <strong>stroke</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Persegi merah dengan sudut bulat -->
+            <div class="svg-card">
+                <svg width="400" height="180">
+                    <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+                        style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+                </svg>
+                <div class="desc">
+                    <h3> Persegi Merah (Sudut Bulat + Transparan)</h3>
+                    <p>Atribut <span class="code-tag">rx</span> dan <span class="code-tag">ry</span>
+                        untuk sudut membulat.<br><strong>opacity</strong> mengatur transparansi (0 = bening, 1 =
+                        penuh).<br>
+                        <strong>x, y</strong> = posisi pojok kiri atas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Poligon: segitiga hijau -->
+            <div class="svg-card">
+                <svg width="300" height="220">
+                    <polygon points="150,10 30,200 270,200" style="fill:green;stroke:darkgreen;stroke-width:3" />
+                </svg>
+                <div class="desc">
+                    <h3> Poligon / Segitiga Hijau</h3>
+                    <p>Dibuat dengan tag <span class="code-tag">&lt;polygon&gt;</span>.<br>
+                        Atribut <strong>points</strong> berisi daftar koordinat titik-titik sudut.<br>
+                        Format: <code>x1,y1 x2,y2 x3,y3 ...</code><br>
+                        Sangat fleksibel untuk membuat berbagai bentuk segi banyak.</p>
+                </div>
+            </div>
+
+            <!-- Teks SVG (bonus) -->
+            <div class="svg-card">
+                <svg width="220" height="80">
+                    <text x="10" y="55" font-family="Quicksand" font-size="30" fill="#ec4899" font-weight="bold">Hello
+                        SVG! </text>
+                </svg>
+                <div class="desc">
+                    <h3> Teks di SVG (Bonus)</h3>
+                    <p>Tag <span class="code-tag">&lt;text&gt;</span> menampilkan tulisan sebagai grafis vektor.
+                        Bisa diberi warna, font, dan ukuran sesuka hati!</p>
+                </div>
+            </div>
+
+            <!-- Kesimpulan -->
+            <div style="background:white; border-radius:15px; padding:20px; border:1px solid #fce4ec;">
+                <h3 style="color:#ec4899; margin-bottom:10px;"> Kesimpulan</h3>
+                <p>SVG (Scalable Vector Graphics) adalah format grafis berbasis XML yang dapat ditampilkan
+                    langsung di HTML5. Keunggulannya adalah <strong>tidak pecah saat diperbesar</strong> karena berbasis
+                    vektor. Kita bisa membuat lingkaran (<code>&lt;circle&gt;</code>), persegi panjang
+                    (<code>&lt;rect&gt;</code>),
+                    poligon (<code>&lt;polygon&gt;</code>), garis (<code>&lt;line&gt;</code>), dan teks
+                    (<code>&lt;text&gt;</code>).
+                    Referensi: <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank"
+                        style="color:#ec4899;">w3schools.com/graphics/svg_intro.asp</a></p>
+                <p style="margin-top:10px; color:#ec4899; font-weight:700;">NIM: 253307005 | Nama: Ummi
+                    Fatikhkhurrokhmah</p>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p> Footer — Hak Cipta &copy; 2026 Ummi Fatikhkhurrokhmah (NIM: 253307005)</p>
+    </footer>
+</body>
+
+</html>
