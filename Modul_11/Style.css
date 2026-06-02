@@ -1,0 +1,285 @@
+/* ============================================================
+   style.css - Shared stylesheet untuk semua halaman CRUD
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+    background: #1a237e;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 18px;
+    display: inline-block;
+    font-size: 0.95em;
+    transition: background 0.2s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background: #283593;
+}
+
+.navbar .brand {
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-right: 20px;
+    color: #90caf9;
+    letter-spacing: 1px;
+}
+
+/* ---- WRAPPER ---- */
+.wrapper {
+    max-width: 960px;
+    margin: 36px auto;
+    padding: 0 16px;
+}
+
+/* ---- PAGE TITLE ---- */
+h1.page-title {
+    text-align: center;
+    font-size: 1.8em;
+    color: #1a237e;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+/* ---- CARD ---- */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+}
+
+/* ---- FIELDSET ---- */
+fieldset {
+    border: 1px solid #c5cae9;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+}
+
+legend {
+    font-weight: 700;
+    color: #1a237e;
+    padding: 0 8px;
+    font-size: 1em;
+}
+
+/* ---- FORM ELEMENTS ---- */
+.form-group {
+    margin-bottom: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #444;
+    font-size: 0.92em;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="search"] {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #c5cae9;
+    border-radius: 6px;
+    font-size: 0.95em;
+    transition: border 0.2s;
+    background: #fafafa;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus {
+    outline: none;
+    border-color: #3949ab;
+    background: #fff;
+}
+
+input[disabled] {
+    background: #e8eaf6;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* ---- BUTTONS ---- */
+.btn {
+    display: inline-block;
+    padding: 9px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.93em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: #3949ab;
+    color: #fff;
+}
+
+.btn-success {
+    background: #2e7d32;
+    color: #fff;
+}
+
+.btn-warning {
+    background: #f57f17;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #c62828;
+    color: #fff;
+}
+
+.btn-info {
+    background: #0277bd;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #546e7a;
+    color: #fff;
+}
+
+.btn-sm {
+    padding: 5px 13px;
+    font-size: 0.82em;
+}
+
+/* ---- TABLE ---- */
+.tbl-wrapper {
+    overflow-x: auto;
+}
+
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93em;
+}
+
+table.data-table th {
+    background: #1a237e;
+    color: #fff;
+    padding: 11px 14px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+table.data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8eaf6;
+    vertical-align: middle;
+}
+
+table.data-table tr:hover td {
+    background: #e8eaf6;
+}
+
+table.data-table tr:nth-child(even) td {
+    background: #f5f5f5;
+}
+
+table.data-table tr:nth-child(even):hover td {
+    background: #e8eaf6;
+}
+
+/* ---- SEARCH BAR ---- */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+.search-form input {
+    flex: 1;
+    max-width: 340px;
+}
+
+/* ---- TOP BAR (action + search) ---- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ---- ALERT ---- */
+.alert {
+    padding: 11px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 0.93em;
+}
+
+.alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-left: 4px solid #2e7d32;
+}
+
+.alert-danger {
+    background: #ffebee;
+    color: #c62828;
+    border-left: 4px solid #c62828;
+}
+
+.alert-info {
+    background: #e3f2fd;
+    color: #0277bd;
+    border-left: 4px solid #0277bd;
+}
+
+/* ---- ACTION LINKS in table ---- */
+.action-links a {
+    margin-right: 6px;
+}
+
+/* ---- NO DATA ---- */
+.no-data {
+    text-align: center;
+    color: #888;
+    padding: 24px;
+    font-style: italic;
+}

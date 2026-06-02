@@ -1,0 +1,16 @@
+<?php
+$con = new mysqli( hostname: "localhost", username: "root", password: "", database: "db_praktikum");
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+
+$sql = "INSERT INTO t_dosen (idDosen, namaDosen, noHP) VALUES (18, 'Rahmat Dwi Prasetya', 'rahmat@example.com')";
+
+$hasil = $con->query($sql);
+if ($hasil === TRUE) {
+    echo "Data berhasil ditambahkan";
+} else {
+    echo "Error: " . $con->error;
+}
+$con->close();
+?>
